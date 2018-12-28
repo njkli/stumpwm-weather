@@ -19,18 +19,18 @@
 #+END_SRC
 
 ~stumpwm-weather:*format-str*~:
-%l - weather-lon
-%L - weather-lat
-%n - weather-name
-%c - weather-country
-%s - weather-sunrise
-%S - weather-sunset
-%d - weather-desc-short
-%D - weather-desc-long
-%t - weather-temp
-%H - weather-humidity
-%p - weather-pressure
-%T - weather-temp-min
-%h - weather-temp-max
-%w - weather-wind-speed
-%W - weather-wind-deg
++ %l - weather-lon
++ %L - weather-lat
++ %n - weather-name
++ %c - weather-country
++ %s - weather-sunrise
++ %S - weather-sunset
++ %d - weather-desc-short
++ %D - weather-desc-long
++ %t - weather-temp
++ %H - weather-humidity
++ %p - weather-pressure
++ %T - weather-temp-min
++ %h - weather-temp-max
++ %w - weather-wind-speed
++ %W - weather-wind-deg
