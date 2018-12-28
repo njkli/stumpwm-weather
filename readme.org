@@ -1,0 +1,36 @@
+#+STARTUP: indent overview align hidestars oddeven lognotestate inlineimages
+* stumpwm-weather
+#+BEGIN_SRC lisp
+  (ql:quickload :stumpwm-weather)
+
+  (setf stumpwm-weather:*open-weather-map-api-key*
+        "get your api key at https://openweathermap.org/api"
+
+        stumpwm-weather:*format-str*            "%H% %d %t°C"
+        stumpwm-weather:*time-format-str*       "%H:%M:%S" ; strftime format
+        stumpwm-weather:*location*              "94043,us" ; Mountain View, CA 94043 USA
+        stumpwm-weather:*mode-line-formatter*   #\E
+
+        stumpwm:*screen-mode-line-format*       (append '("%E")
+                                                        stumpwm:*screen-mode-line-format*))
+
+  (stumpwm-weather:on)
+  (add-hook stumpwm:*quit-hook* 'stumpwm-weather:off)
+#+END_SRC
+
+~stumpwm-weather:*format-str*~:
+%l - weather-lon
+%L - weather-lat
+%n - weather-name
+%c - weather-country
+%s - weather-sunrise
+%S - weather-sunset
+%d - weather-desc-short
+%D - weather-desc-long
+%t - weather-temp
+%H - weather-humidity
+%p - weather-pressure
+%T - weather-temp-min
+%h - weather-temp-max
+%w - weather-wind-speed
+%W - weather-wind-deg

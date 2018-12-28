@@ -9,7 +9,6 @@
   :depends-on (#:stumpwm
                #:ia-hash-table
                #:drakma
-               #:cl-strings
                #:cl-strftime
                #:flexi-streams
                #:yason)
