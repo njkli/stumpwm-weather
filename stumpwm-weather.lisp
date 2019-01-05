@@ -3,6 +3,9 @@
 (in-package #:stumpwm-weather)
 (enable-ia-syntax)
 
+(defvar *units* nil)
+(when (null *units*) (setf *units* "metric"))
+
 ;; (weather-format "%l %L %n %c %s %S %d %D %t %H %p %T %h %w %W")
 (defvar *weather-format-string-alist*
   '((#\l weather-lon)
@@ -73,8 +76,9 @@
 (defun update-weather ()
   (http-get-ia-hash-table
    (format nil
-           "http://api.openweathermap.org/data/2.5/weather?zip=~a&units=metric&APPID=~a"
+           "http://api.openweathermap.org/data/2.5/weather?zip=~a&units=~a&APPID=~a"
            *location*
+           *units*
            *open-weather-map-api-key*)))
 
 (defun current-weather ()

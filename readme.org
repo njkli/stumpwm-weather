@@ -1,11 +1,13 @@
 #+STARTUP: indent overview align hidestars oddeven lognotestate inlineimages
 * stumpwm-weather
 #+BEGIN_SRC lisp
+  (push "/home/user/.quicklisp/local-projects/stumpwm-weather/" asdf:*central-registry*)
   (ql:quickload :stumpwm-weather)
 
   (setf stumpwm-weather:*open-weather-map-api-key*
         "get your api key at https://openweathermap.org/api"
 
+        stumpwm-weather:*units*                 "metric"
         stumpwm-weather:*format-str*            "%H% %d %t°C"
         stumpwm-weather:*time-format-str*       "%H:%M:%S" ; strftime format
         stumpwm-weather:*location*              "94043,us" ; Mountain View, CA 94043 USA
