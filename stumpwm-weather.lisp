@@ -74,12 +74,15 @@
     (rec-plist-ia-hash-table (yason:parse stream :object-as :plist))))
 
 (defun update-weather ()
-  (http-get-ia-hash-table
-   (format nil
-           "http://api.openweathermap.org/data/2.5/weather?zip=~a&units=~a&APPID=~a"
-           *location*
-           *units*
-           *open-weather-map-api-key*)))
+  (handler-case
+      (http-get-ia-hash-table
+       (format nil
+               "http://api.openweathermap.org/data/2.5/weather?zip=~a&units=~a&APPID=~a"
+               *location*
+               *units*
+               *open-weather-map-api-key*))
+    (error (c)
+      (message "^B^1*stumpwm-weather: connection error...^n"))))
 
 (defun current-weather ()
   (setf *current-weather* (update-weather)))
