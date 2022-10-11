@@ -66,10 +66,11 @@
     ht))
 
 (defun http-get-ia-hash-table (req)
-  (let ((stream (drakma:http-request
-                 req
-                 :want-stream t
-                 :decode-content t)))
+  (with-open-stream (stream
+                     (drakma:http-request
+                      req
+                      :want-stream t
+                      :decode-content t))
     (setf (flexi-streams:flexi-stream-external-format stream) :utf-8)
     (rec-plist-ia-hash-table (yason:parse stream :object-as :plist))))
 
